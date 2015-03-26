@@ -12,6 +12,10 @@ Note: The files are based on the [University/School Laboratory Report](http://ww
 
 ### *.{java,s,v}
 
-The Java, MIPS and Verilog source codes are all under [GPLv3](https://www.gnu.org/licenses/gpl.html), with the following additional condition:
+The Java, MIPS and Verilog source codes are distributed under the terms of [GPLv3](https://www.gnu.org/licenses/gpl.html), with the following additional condition:
 
 I don't allow you to submit *my* code as *your* work for any type of assignment or evaluation. Basically, use of the code for any kind of plagiarism is disallowed.
+
+### mips.sty
+
+This is a language definition for MIPS by Adam Wolfe Gordon, distributed under [LPPL](http://www.latex-project.org/lppl.txt). See [Typesetting MIPS Assembly Code in LaTeX](http://blog.xvx.ca/typesetting-mips-assembly-with-latex).
