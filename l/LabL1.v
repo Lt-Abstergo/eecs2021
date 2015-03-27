@@ -1,7 +1,7 @@
 module LabL;
 
    reg a, b, c;
-   reg [1:0] expect;
+   reg expect;
    wire z;
    integer i, j, k;
    yMux1 mux(z, a, b, c);
