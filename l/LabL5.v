@@ -3,7 +3,7 @@ module labL;
    reg a, b, cin;
    reg [1:0] expect;
    wire z, cout;
-   yAdder1 mux(z, cout, a, b, cin);
+   yAdder1 adder(z, cout, a, b, cin);
    integer i, j, k;
 
    initial

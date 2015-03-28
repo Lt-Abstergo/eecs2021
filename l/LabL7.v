@@ -5,7 +5,7 @@ module labL;
    wire signed [31:0] z;
    wire signed        cout;
 
-   yAdder mux(z, cout, a, b, cin);
+   yAdder adder(z, cout, a, b, cin);
 
    initial
      begin
