@@ -162,6 +162,49 @@ PASS: a=11 b=11 c=1 z=11
 
 \end{enumerate}
 
+\subsection{LabL3}
+\begin{enumerate}
+\item[14. ] The behaviour using a 32-bit width bus is exactly the same (same output as LabL2). However, the binary representations of the outputs are now 32-bit wide so I haven't included them.
+
+\item[17. ] All tests pass with randomly generated values for \verb$a$, \verb$b$ and \verb$c$:
+\begin{verbatim}
+PASS: a=00010010000101010011010100100100
+      b=11000000100010010101111010000001
+      c=1 z=11000000100010010101111010000001
+PASS: a=10110001111100000101011001100011
+      b=00000110101110010111101100001101
+      c=1 z=00000110101110010111101100001101
+PASS: a=10110010110000101000010001100101
+      b=10001001001101110101001000010010
+      c=1 z=10001001001101110101001000010010
+PASS: a=00000110110101111100110100001101
+      b=00111011001000111111000101110110
+      c=1 z=00111011001000111111000101110110
+PASS: a=01110110110101000101011111101101
+      b=01000110001011011111011110001100
+      c=1 z=01000110001011011111011110001100
+PASS: a=11100011001101110010010011000110
+      b=11100010111101111000010011000101
+      c=0 z=11100011001101110010010011000110
+PASS: a=01110010101011111111011111100101
+      b=10111011110100100111001001110111
+      c=0 z=01110010101011111111011111100101
+PASS: a=01000111111011001101101110001111
+      b=01111001001100000110100111110010
+      c=0 z=01000111111011001101101110001111
+PASS: a=11110100000000000111101011101000
+      b=11100010110010100100111011000101
+      c=0 z=11110100000000000111101011101000
+PASS: a=11011110100011100010100010111101
+      b=10010110101010110101100000101101
+      c=1 z=10010110101010110101100000101101
+\end{verbatim}
+
+\item[18. ] \verb$(10)$ is the number of times the \verb$repeat$ block is executed.
+After changing it to \verb$(500)$ and modifying the code to display only if a test fails, there is no output, which means all the tests have passed.
+
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -180,6 +223,14 @@ PASS: a=11 b=11 c=1 z=11
 \subsection{LabL1}
 \lstinputlisting[language=verilog]{yMux1.v}
 \lstinputlisting[language=verilog]{LabL1.v}
+
+\subsection{LabL2}
+\lstinputlisting[language=verilog]{yMux2.v}
+\lstinputlisting[language=verilog]{LabL2.v}
+
+\subsection{LabL3}
+\lstinputlisting[language=verilog]{yMux.v}
+\lstinputlisting[language=verilog]{LabL3.v}
 
 %----------------------------------------------------------------------------------------
 
