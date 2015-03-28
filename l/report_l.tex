@@ -250,6 +250,33 @@ This is indeed a 4-to-1 multiplexer.
 \item[25. ] \verb$LabL5.v$ was created to perform exhaustive testing on \verb$yAdder1$ and output any errors (i.e. if MSb of \verb$a+b+cin$ is not equal to \verb$cout$ or if the LSb is different than \verb$z$). The output was empty (all tests passed).
 \end{enumerate}
 
+\subsection{LabL6}
+\begin{enumerate}
+\item[26. ] To build a 32-bit full adder, 32 (1-bit) full adders are cascaded, each cell adds the corresponding bits of \verb$a$ and \verb$b$ and the carry out of each cell is directed into the carry in of the higher order cell.
+
+\item[28. ] In the case of multiplexers, the internal muxes function independently, each selecting between two inputs and they all work in parallel. Whereas with full adders, the result of each addition depends on the previous stage, since the carries are cascaded and each addition has to be performed to be able to do the next stage addition (pseudo-parallel).
+
+\item[29. ] Here's a sample output of \verb$LabL6.v$ (with a repeat block that that repeats 3 times) testing the 32-bit full adder:
+\begin{verbatim}
+PASS: a=00010010000101010011010100100100
+      b=11000000100010010101111010000001
+    cin=0
+      z=11010010100111101001001110100101
+ expect=11010010100111101001001110100101
+PASS: a=10000100100001001101011000001001
+      b=10110001111100000101011001100011
+    cin=0
+      z=00110110011101010010110001101100
+ expect=00110110011101010010110001101100
+PASS: a=00000110101110010111101100001101
+      b=01000110110111111001100110001101
+    cin=0
+      z=01001101100110010001010010011010
+ expect=01001101100110010001010010011010
+\end{verbatim}
+  All tests pass. The repeat block can easily be adjusted to perform more tests: a repeat block doing 10000 iterations was also tested, passing all the tests. Therefore the adder generates correct results.
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -284,6 +311,10 @@ This is indeed a 4-to-1 multiplexer.
 \subsection{LabL5}
 \lstinputlisting[language=verilog]{yAdder1.v}
 \lstinputlisting[language=verilog]{LabL5.v}
+
+\subsection{LabL6}
+\lstinputlisting[language=verilog]{yAdder.v}
+\lstinputlisting[language=verilog]{LabL6.v}
 
 %----------------------------------------------------------------------------------------
 
