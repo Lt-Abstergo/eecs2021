@@ -118,6 +118,50 @@ PASS: a=1 b=1 c=1 z=1
 
 \end{enumerate}
 
+\subsection{LabL2}
+\begin{enumerate}
+\item[6. ] Having a multiplexer for 2-bit input/output is like having two multiplexers that each handle one bit of input/output. The two multiplexers share the same control bit. The shown circuit for \verb$yMux2$ is a schema for the given description of such multiplexer.
+
+\item[9. ] The enhanced (2-bit) mux (using \verb$yMux2$) behaves as expected:
+\begin{verbatim}
+PASS: a=00 b=00 c=0 z=00
+PASS: a=00 b=00 c=1 z=00
+PASS: a=00 b=01 c=0 z=00
+PASS: a=00 b=01 c=1 z=01
+PASS: a=00 b=10 c=0 z=00
+PASS: a=00 b=10 c=1 z=10
+PASS: a=00 b=11 c=0 z=00
+PASS: a=00 b=11 c=1 z=11
+PASS: a=01 b=00 c=0 z=01
+PASS: a=01 b=00 c=1 z=00
+PASS: a=01 b=01 c=0 z=01
+PASS: a=01 b=01 c=1 z=01
+PASS: a=01 b=10 c=0 z=01
+PASS: a=01 b=10 c=1 z=10
+PASS: a=01 b=11 c=0 z=01
+PASS: a=01 b=11 c=1 z=11
+PASS: a=10 b=00 c=0 z=10
+PASS: a=10 b=00 c=1 z=00
+PASS: a=10 b=01 c=0 z=10
+PASS: a=10 b=01 c=1 z=01
+PASS: a=10 b=10 c=0 z=10
+PASS: a=10 b=10 c=1 z=10
+PASS: a=10 b=11 c=0 z=10
+PASS: a=10 b=11 c=1 z=11
+PASS: a=11 b=00 c=0 z=11
+PASS: a=11 b=00 c=1 z=00
+PASS: a=11 b=01 c=0 z=11
+PASS: a=11 b=01 c=1 z=01
+PASS: a=11 b=10 c=0 z=11
+PASS: a=11 b=10 c=1 z=10
+PASS: a=11 b=11 c=0 z=11
+PASS: a=11 b=11 c=1 z=11
+\end{verbatim}
+
+  All tests still pass and the 2-bit mux is working correctly.
+
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
