@@ -282,6 +282,46 @@ PASS: a=00000110101110010111101100001101
 \item[33. ] After adding \verb$signed$ keyword after each \verb$reg$ and \verb$wire$ declaration, the tests are still passing. This confirms that the correctness of the adder is independent of interpretation.
 \end{enumerate}
 
+\subsection{LabL8}
+\begin{enumerate}
+\item[34. ] Subtraction can be done with one adder: if we set \verb$cin=1$, we're telling the adder that we have a carry (of 1), so in effect, we're adding one to the number. Now, we just have to \verb$NOT$ the second number and add it to the first one. This is how we do a subtraction in 2's Complement. If we use this technique along with a mux (to decide whether we should \verb$NOT$ the second number or not), we can easily have an arithmetic circuit that takes two numbers and a control bit, and will subtract the numbers if the \verb$ctrl$ bit is 1 and otherwise add them.
+
+\item[39. ]
+\begin{verbatim}
+PASS: a=  303379748
+      b=-1064739199
+   ctrl=1
+      z= 1368118947
+ expect= 1368118947
+PASS: a=-1309649309
+      b=  112818957
+   ctrl=1
+      z=-1422468266
+ expect=-1422468266
+PASS: a=-1295874971
+      b=-1992863214
+   ctrl=1
+      z=  696988243
+ expect=  696988243
+PASS: a=  114806029
+      b=  992211318
+   ctrl=1
+      z= -877405289
+ expect= -877405289
+PASS: a= 1993627629
+      b= 1177417612
+   ctrl=1
+      z=  816210017
+ expect=  816210017
+PASS: a= -482925370
+      b= -487095099
+   ctrl=0
+      z= -970020469
+ expect= -970020469
+\end{verbatim}
+  \verb$yArith$ works as expected, as demonstrated with the above random test cases.
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
