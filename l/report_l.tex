@@ -8,6 +8,8 @@
 \usepackage{amsmath} % Required for some math elements 
 \usepackage{listings}
 \usepackage{color}
+\usepackage{circuitikz}
+\usetikzlibrary{circuits.logic.IEC,calc}
 
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
@@ -205,6 +207,44 @@ After changing it to \verb$(500)$ and modifying the code to display only if a te
 
 \end{enumerate}
 
+\subsection{LabL4}
+\begin{enumerate}
+\item[21. ] $ $
+
+\begin{circuitikz}[circuit logic IEC] 
+\node[and gate,inputs={nn},and gate IEC symbol={},text height=1cm,] (A) {};
+\node[and gate,inputs={nn},and gate IEC symbol={},text height=1cm,] (B) at (0,2) {};
+\node[and gate,inputs={nn},and gate IEC symbol={},text height=3cm,] (C) at (2.5,1) {};
+\draw  ([xshift=-10pt]A.input 1) node[left] {$a_{2}$} -- (A.input 1);
+\draw  ([xshift=-10pt]A.input 2) node[left] {$a_{3}$} -- (A.input 2);
+\draw  ([xshift=-10pt]B.input 1) node[left] {$a_{0}$} -- (B.input 1);
+\draw  ([xshift=-10pt]B.input 2) node[left] {$a_{1}$} -- (B.input 2);
+\draw (A.output) -- ++(1.9,0) node[above left] {$zHi$};
+\draw (A.south) -- ++(-90:0.3) |- ++(-15pt,0) node[left] {$c[0]$};
+\draw (B.output) -- ++(1.9,0) node[below left] {$zLo$};
+\draw (B.south) -- ++(-90:0.3) |- ++(-15pt,0) node[left] {$c[0]$};
+\draw (C.output) -- ++(10pt,0) node[right] {$z$};
+\draw (C.south) -- ++(-90:0.3) |- ++(-15pt,0) node[left] {$c[1]$};
+\end{circuitikz}
+
+Let's verify that this circuit is a 4-to-1 mux:
+\begin{itemize}
+\item c=0: \linebreak
+\verb$c[0]=0$ $\rightarrow$ $zLo=a_0$, $zHi=a_2$ \, \verb$c[1]=0$ $\rightarrow$ $z=zLo=a_0$
+\item c=1 \linebreak
+\verb$c[0]=1$ $\rightarrow$ $zLo=a_1$, $zHi=a_3$ \, \verb$c[1]=0$ $\rightarrow$ $z=zLo=a_1$
+\item c=2 \linebreak
+\verb$c[0]=0$ $\rightarrow$ $zLo=a_0$, $zHi=a_2$ \, \verb$c[1]=1$ $\rightarrow$ $z=zHi=a_2$
+\item c=3 \linebreak
+\verb$c[0]=1$ $\rightarrow$ $zLo=a_1$, $zHi=a_3$ \, \verb$c[1]=1$ $\rightarrow$ $z=zHi=a_3$
+\end{itemize}
+
+This is indeed a 4-to-1 multiplexer.
+
+\item[22. ] \verb$yMux4t1$ was tested with several thousand values each checked against their respective oracle (all done in \verb$LabL4.v$) and all the tests passed. Therefore the four-way mux behaves as expected.
+
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -231,6 +271,10 @@ After changing it to \verb$(500)$ and modifying the code to display only if a te
 \subsection{LabL3}
 \lstinputlisting[language=verilog]{yMux.v}
 \lstinputlisting[language=verilog]{LabL3.v}
+
+\subsection{LabL4}
+\lstinputlisting[language=verilog]{yMux4to1.v}
+\lstinputlisting[language=verilog]{LabL4.v}
 
 %----------------------------------------------------------------------------------------
 
