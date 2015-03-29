@@ -15,7 +15,7 @@ module yAlu (z, ex, a, b, op) ;
 
    // set slt[0]
    xor (condition, a[31], b[31]);
-   assign tmp = a - b;
+   yArith slt_arith(tmp, cout, a, b, 1);
    yMux #(.SIZE(1)) slt_mux(slt[0], tmp[31], a[31], condition);
 
    // instantiate the components and connect them
