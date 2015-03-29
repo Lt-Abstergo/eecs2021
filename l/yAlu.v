@@ -5,11 +5,18 @@ module yAlu (z, ex, a, b, op) ;
    output [31:0] z;
    output        ex;
    wire          cout;
-   wire [31:0]   alu_and, alu_or, alu_arith, slt;
+   wire [31:0]   alu_and, alu_or, alu_arith, slt, tmp;
+
+   // upper bits are always zero
+   assign slt[31:1] = 0;
 
    // not supported
-   assign slt = 0;
    assign ex = 0;
+
+   // set slt[0]
+   xor (condition, a[31], b[31]);
+   assign tmp = a - b;
+   yMux #(.SIZE(1)) slt_mux(slt[0], tmp[31], a[31], condition);
 
    // instantiate the components and connect them
    and m_and [31:0] (alu_and, a, b);
