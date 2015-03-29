@@ -395,6 +395,45 @@ PASS:  a=00000000111100111110001100000001
 \end{verbatim}
 \end{enumerate}
 
+\subsection{LabL11}
+\begin{enumerate}
+\item[52. ] This \textit{algorithm} is basically the \verb$NOR$ gate, and it only produces 1 when all inputs are 0. Let's take a look at the truth table of \verb$NOR$:
+\begin{displaymath}
+\begin{array}{|c|c|c|}
+\hline
+   P
+ & Q
+ & P \downarrow Q \\
+\hline
+0 & 0 & 1 \\
+0 & 1 & 0 \\
+1 & 0 & 0 \\
+1 & 1 & 0 \\
+\hline
+\end{array}
+\end{displaymath}
+The only difference between this table and our algorithm is that we have 32 inputs instead of 2. The truth table for 32 inputs will be \textit{huge} but again the only case the result of the function is 1 will be the case where all 32 values are 0; because even if one value is 1, the result of \verb$OR$ will be 1, and \verb$NOT$ of that will be 0.
+
+\item[55. ] Here are some sample outputs after implementing the \verb$zero$ (zero output detection):
+\begin{verbatim}
+$ vvp a.out +op=7
+PASS:  a=00010010000101010011010100100100
+       b=11000000100010010101111010000001
+     a<b=00000000000000000000000000000000
+    zero=1
+
+PASS:  a=10110001111100000101011001100011
+       b=00000110101110010111101100001101
+     a<b=00000000000000000000000000000001
+    zero=0
+
+PASS:  a=10110010110000101000010001100101
+       b=10001001001101110101001000010010
+     a<b=00000000000000000000000000000000
+    zero=1
+\end{verbatim}
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -442,14 +481,20 @@ PASS:  a=00000000111100111110001100000001
 \lstinputlisting[language=verilog]{LabL8.v}
 
 \subsection{LabL9}
-\lstinputlisting[language=verilog]{yAlu.v}
+\verb$yAlu.v$: See \textbf{LabL11} sources below (completely implemented)
+
+\verb$LabL9.v$:
 \lstinputlisting[language=verilog]{LabL9.v}
 
 \subsection{LabL10}
-\verb$yAlu.v$: See \textbf{LabL9} sources above (completely implemented)
+\verb$yAlu.v$: See \textbf{LabL11} sources below (completely implemented)
 
 \verb$LabL10.v$:
 \lstinputlisting[language=verilog]{LabL10.v}
+
+\subsection{LabL11}
+\lstinputlisting[language=verilog]{yAlu.v}
+\lstinputlisting[language=verilog]{LabL11.v}
 
 %----------------------------------------------------------------------------------------
 
