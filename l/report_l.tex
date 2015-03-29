@@ -322,6 +322,52 @@ PASS: a= -482925370
   \verb$yArith$ works as expected, as demonstrated with the above random test cases.
 \end{enumerate}
 
+\subsection{LabL9}
+\begin{enumerate}
+\item[44. ] The ALU works correctly and as expected on all four operations. Here's some sample output (2 tests for each operation):
+\begin{verbatim}
+$ vvp a.out +op=0
+PASS:  a=00010010000101010011010100100100
+       b=11000000100010010101111010000001
+     a&b=00000000000000010001010000000000
+
+PASS:  a=10000100100001001101011000001001
+       b=10110001111100000101011001100011
+     a&b=10000000100000000101011000000001
+
+
+$ vvp a.out +op=1
+PASS:  a=00010010000101010011010100100100
+       b=11000000100010010101111010000001
+     a|b=11010010100111010111111110100101
+
+PASS:  a=10000100100001001101011000001001
+       b=10110001111100000101011001100011
+     a|b=10110101111101001101011001101011
+
+
+$ vvp a.out +op=2
+PASS:  a=00010010000101010011010100100100
+       b=11000000100010010101111010000001
+     a+b=11010010100111101001001110100101
+
+PASS:  a=10000100100001001101011000001001
+       b=10110001111100000101011001100011
+     a+b=00110110011101010010110001101100
+
+
+$ vvp a.out +op=6
+PASS:  a=00010010000101010011010100100100
+       b=11000000100010010101111010000001
+     a-b=01010001100010111101011010100011
+
+PASS:  a=10000100100001001101011000001001
+       b=10110001111100000101011001100011
+     a-b=11010010100101000111111110100110
+\end{verbatim}
+  Note: \verb#$# is the shell prompt.
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -363,6 +409,14 @@ PASS: a= -482925370
 
 \subsection{LabL7}
 \lstinputlisting[language=verilog]{LabL7.v}
+
+\subsection{LabL8}
+\lstinputlisting[language=verilog]{yArith.v}
+\lstinputlisting[language=verilog]{LabL8.v}
+
+\subsection{LabL9}
+\lstinputlisting[language=verilog]{yAlu.v}
+\lstinputlisting[language=verilog]{LabL9.v}
 
 %----------------------------------------------------------------------------------------
 
