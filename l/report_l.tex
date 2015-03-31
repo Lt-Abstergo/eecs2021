@@ -38,7 +38,8 @@
 
 \setlength\parindent{0pt} % Removes all indentation from paragraphs
 
-\renewcommand{\labelenumi}{\alph{enumi}.} % Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+% Make numbering in the enumerate environment by letter rather than number (e.g. section 6)
+\renewcommand{\labelenumi}{\alph{enumi}.}
 
 %----------------------------------------------------------------------------------------
 %	DOCUMENT INFORMATION
@@ -78,16 +79,30 @@ Honesty in writing this report.”
 
 \section{Introduction}
 
-The purpose of this lab is gaining more familiarity with the Verilog language and using it to build and use memory-less and combinational components. Throughout the lab the student is asked to:
+The purpose of this lab is gaining more familiarity with the Verilog language
+and using it to build and use memory-less and combinational components.
+Throughout the lab the student is asked to:
 
 \begin{itemize}
 \item use abstraction to encapsulate a circuit in form of a separate module,
-\item enhance an existing 2-to-1 multiplexer to handle 2-bit busses instead of 1-bit wires and then extend it to 32-bits,
+
+\item enhance an existing 2-to-1 multiplexer to handle 2-bit busses instead
+of 1-bit wires and then extend it to 32-bits,
+
 \item design a 4-to-1 multiplexer,
-\item encapsulate a simple full adder as a module and use it to make a 32-bit full adder,
-\item extend the full adder to perform subtraction as well, and thus have made a simple arithmetic unit,
+
+\item encapsulate a simple full adder as a module and use it to make a
+32-bit full adder,
+
+\item extend the full adder to perform subtraction as well,
+and thus have made a simple arithmetic unit,
+
 \item reading user input from the standard input, and
-\item finally, use all the previous pieces to build an ALU with logical \verb$AND$/\verb$OR$ and addition/subtraction and \verb$slt$ operations along with a \verb$zero$ flag exception.
+
+\item finally, use all the previous pieces to build an ALU with
+logical \verb$AND$/\verb$OR$ and addition/subtraction and \verb$slt$ operations
+along with a \verb$zero$ flag exception.
+
 \end{itemize}
 
 %----------------------------------------------------------------------------------------
@@ -132,7 +147,10 @@ PASS: a=1 b=1 c=1 z=1
 
 \subsection{LabL2}
 \begin{enumerate}
-\item[6. ] Having a multiplexer for 2-bit input/output is like having two multiplexers that each handle one bit of input/output. The two multiplexers share the same control bit. The shown circuit for \verb$yMux2$ is a schema for the given description of such multiplexer.
+\item[6. ] Having a multiplexer for 2-bit input/output is like having two
+multiplexers that each handle one bit of input/output. The two multiplexers
+share the same control bit. The shown circuit for \verb$yMux2$ is a schema
+for the given description of such multiplexer.
 
 \item[9. ] The enhanced (2-bit) mux (using \verb$yMux2$) behaves as expected:
 \begin{verbatim}
@@ -176,9 +194,12 @@ PASS: a=11 b=11 c=1 z=11
 
 \subsection{LabL3}
 \begin{enumerate}
-\item[14. ] The behaviour using a 32-bit width bus is exactly the same (same output as LabL2). However, the binary representations of the outputs are now 32-bit wide so I haven't included them.
+\item[14. ] The behaviour using a 32-bit width bus is exactly the same
+(same output as LabL2). However, the binary representations of the outputs
+are now 32-bit wide so I haven't included them.
 
-\item[17. ] All tests pass with randomly generated values for \verb$a$, \verb$b$ and \verb$c$:
+\item[17. ] All tests pass with randomly generated values for \verb$a$,
+\verb$b$ and \verb$c$:
 \begin{verbatim}
 PASS: a=00010010000101010011010100100100
       b=11000000100010010101111010000001
@@ -213,7 +234,8 @@ PASS: a=11011110100011100010100010111101
 \end{verbatim}
 
 \item[18. ] \verb$(10)$ is the number of times the \verb$repeat$ block is executed.
-After changing it to \verb$(500)$ and modifying the code to display only if a test fails, there is no output, which means all the tests have passed.
+After changing it to \verb$(500)$ and modifying the code to display only if a
+test fails, there is no output, which means all the tests have passed.
 
 \end{enumerate}
 
@@ -251,22 +273,34 @@ Let's verify that this circuit is a 4-to-1 mux:
 
 This is indeed a 4-to-1 multiplexer.
 
-\item[22. ] \verb$yMux4to1$ was tested with several thousand values each checked against their respective oracle (all done in \verb$LabL4.v$) and all the tests passed. Therefore the four-way mux behaves as expected.
+\item[22. ] \verb$yMux4to1$ was tested with several thousand values each
+checked against their respective oracle (all done in \verb$LabL4.v$) and
+all the tests passed. Therefore the four-way mux behaves as expected.
 
 \end{enumerate}
 
 \subsection{LabL5}
 \begin{enumerate}
-\item[25. ] \verb$LabL5.v$ was created to perform exhaustive testing on \verb$yAdder1$ and output any errors (i.e. if MSb of \verb$a+b+cin$ is not equal to \verb$cout$ or if the LSb is different than \verb$z$). The output was empty (all tests passed).
+\item[25. ] \verb$LabL5.v$ was created to perform exhaustive testing
+on \verb$yAdder1$ and output any errors (i.e. if MSb of \verb$a+b+cin$
+is not equal to \verb$cout$ or if the LSb is different than \verb$z$).
+The output was empty (all tests passed).
 \end{enumerate}
 
 \subsection{LabL6}
 \begin{enumerate}
-\item[26. ] To build a 32-bit full adder, 32 (1-bit) full adders are cascaded, each cell adds the corresponding bits of \verb$a$ and \verb$b$ and the carry out of each cell is directed into the carry in of the higher order cell.
+\item[26. ] To build a 32-bit full adder, 32 (1-bit) full adders are cascaded,
+each cell adds the corresponding bits of \verb$a$ and \verb$b$ and the
+carry out of each cell is directed into the carry in of the higher order cell.
 
-\item[28. ] In the case of multiplexers, the internal muxes function independently, each selecting between two inputs and they all work in parallel. Whereas with full adders, the result of each addition depends on the previous stage, since the carries are cascaded and each addition has to be performed to be able to do the next stage addition (pseudo-parallel).
+\item[28. ] In the case of multiplexers, the internal muxes function
+independently, each selecting between two inputs and they all work in parallel.
+Whereas with full adders, the result of each addition depends on the previous
+stage, since the carries are cascaded and each addition has to be performed to
+be able to do the next stage addition (pseudo-parallel).
 
-\item[29. ] Here's a sample output of \verb$LabL6.v$ (with a repeat block that that repeats 3 times) testing the 32-bit full adder:
+\item[29. ] Here's a sample output of \verb$LabL6.v$ (with a repeat block that
+repeats 3 times) testing the 32-bit full adder:
 \begin{verbatim}
 PASS: a=00010010000101010011010100100100
       b=11000000100010010101111010000001
@@ -284,17 +318,28 @@ PASS: a=00000110101110010111101100001101
       z=01001101100110010001010010011010
  expect=01001101100110010001010010011010
 \end{verbatim}
-  All tests pass. The repeat block can easily be adjusted to perform more tests: a repeat block doing 10000 iterations was also tested, passing all the tests. Therefore the adder generates correct results.
+  All tests pass. The repeat block can easily be adjusted to perform more tests:
+a repeat block doing 10000 iterations was also tested, passing all the tests.
+Therefore the adder generates correct results.
 \end{enumerate}
 
 \subsection{LabL7}
 \begin{enumerate}
-\item[33. ] After adding \verb$signed$ keyword after each \verb$reg$ and \verb$wire$ declaration, the tests are still passing. This confirms that the correctness of the adder is independent of interpretation.
+\item[33. ] After adding \verb$signed$ keyword after each \verb$reg$ and
+\verb$wire$ declaration, the tests are still passing. This confirms that
+the correctness of the adder is independent of interpretation.
 \end{enumerate}
 
 \subsection{LabL8}
 \begin{enumerate}
-\item[34. ] Subtraction can be done with one adder: if we set \verb$cin=1$, we're telling the adder that we have a carry (of 1), so in effect, we're adding one to the number. Now, we just have to \verb$NOT$ the second number and add it to the first one. This is how we do a subtraction in 2's Complement. If we use this technique along with a mux (to decide whether we should \verb$NOT$ the second number or not), we can easily have an arithmetic circuit that takes two numbers and a control bit, and will subtract the numbers if the \verb$ctrl$ bit is 1 and otherwise add them.
+\item[34. ] Subtraction can be done with one adder: if we set \verb$cin=1$,
+we're telling the adder that we have a carry (of 1), so in effect, we're adding
+one to the number. Now, we just have to \verb$NOT$ the second number and add it
+to the first one. This is how we do a subtraction in 2's Complement. If we use
+this technique along with a mux (to decide whether we should \verb$NOT$ the
+second number or not), we can easily have an arithmetic circuit that takes
+two numbers and a control bit, and will subtract the numbers if the \verb$ctrl$
+bit is 1 and otherwise add them.
 
 \item[39. ]
 \begin{verbatim}
@@ -334,7 +379,8 @@ PASS: a= -482925370
 
 \subsection{LabL9}
 \begin{enumerate}
-\item[44. ] The ALU works correctly and as expected on all four operations. Here's some sample output (2 tests for each operation):
+\item[44. ] The ALU works correctly and as expected on all four operations.
+Here's some sample output (2 tests for each operation):
 \begin{verbatim}
 $ vvp a.out +op=0
 PASS:  a=00010010000101010011010100100100
@@ -407,7 +453,9 @@ PASS:  a=00000000111100111110001100000001
 
 \subsection{LabL11}
 \begin{enumerate}
-\item[52. ] This \textit{algorithm} is basically the \verb$NOR$ gate, and it only produces 1 when all inputs are 0. Let's take a look at the truth table of \verb$NOR$:
+\item[52. ] This \textit{algorithm} is basically the \verb$NOR$ gate, and it
+only produces 1 when all inputs are 0. Let's take a look at the truth table
+of \verb$NOR$:
 \begin{displaymath}
 \begin{array}{|c|c|c|}
 \hline
@@ -422,9 +470,14 @@ PASS:  a=00000000111100111110001100000001
 \hline
 \end{array}
 \end{displaymath}
-The only difference between this table and our algorithm is that we have 32 inputs instead of 2. The truth table for 32 inputs will be \textit{huge} but again the only case the result of the function is 1 will be the case where all 32 values are 0; because even if one value is 1, the result of \verb$OR$ will be 1, and \verb$NOT$ of that will be 0.
+The only difference between this table and our algorithm is that we have
+32 inputs instead of 2. The truth table for 32 inputs will be \textit{huge}
+but again the only case the result of the function is 1 will be the case where
+all 32 values are 0; because even if one value is 1, the result of \verb$OR$
+will be 1, and \verb$NOT$ of that will be 0.
 
-\item[55. ] Here are some sample outputs after implementing the \verb$zero$ (zero output detection):
+\item[55. ] Here are some sample outputs after implementing the
+\verb$zero$ (zero output detection):
 \begin{verbatim}
 $ vvp a.out +op=7
 PASS:  a=00010010000101010011010100100100
@@ -446,7 +499,8 @@ PASS:  a=10110010110000101000010001100101
 
 \subsection{CPU}
 \begin{enumerate}
-\item[57. ] \verb$cpu.z$ was tested with existing modules (e.g. \verb$LabL9.v$, \verb$LabL11.v$, etc) and it works correctly.
+\item[57. ] \verb$cpu.z$ was tested with existing modules (e.g. \verb$LabL9.v$,
+\verb$LabL11.v$, etc) and it works correctly.
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------
