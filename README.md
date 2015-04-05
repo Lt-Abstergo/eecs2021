@@ -16,6 +16,14 @@ The Java, MIPS and Verilog source codes are distributed under the terms of [GPLv
 
 I don't allow you to submit *my* code as *your* work for any type of assignment or evaluation. Basically, use of the code for any kind of plagiarism is disallowed.
 
+### hrLib/*.v
+
+These files were written and developed by [Professor H. Roumani](http://www.eecs.yorku.ca/~roumani/) and are used for the exercises in labs **M** and **N**. The files are included in this repository with permission from the Professor.
+
+### hrLib/exceptions.s
+
+This file is an [older version](http://sourceforge.net/p/spimsimulator/code/265/tree/CPU/exceptions.s) of the [current exceptions.s](sourceforge.net/p/spimsimulator/code/HEAD/tree/CPU/exceptions.s) which is part of the SPIM MIPS simulator. The license is included in the header of the file.
+
 ### mips.sty
 
 This is a language definition for MIPS by Adam Wolfe Gordon, distributed under [LPPL](http://www.latex-project.org/lppl.txt). See [Typesetting MIPS Assembly Code in LaTeX](http://blog.xvx.ca/typesetting-mips-assembly-with-latex).
