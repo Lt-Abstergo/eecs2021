@@ -27,3 +27,7 @@ This file is an [older version](http://sourceforge.net/p/spimsimulator/code/265/
 #### mips.sty
 
 This is a language definition for MIPS by Adam Wolfe Gordon, distributed under [LPPL](http://www.latex-project.org/lppl.txt). See [Typesetting MIPS Assembly Code in LaTeX](http://blog.xvx.ca/typesetting-mips-assembly-with-latex).
+
+#### .gitignore
+
+[github/gitignore/Tex.gitignore](https://github.com/github/gitignore/blob/master/TeX.gitignore) with small modifications. [MIT](https://github.com/github/gitignore/blob/master/LICENSE). 
