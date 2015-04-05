@@ -126,7 +126,40 @@ clk=1 d=        20, z=        20
 clk=0 d=        25, z=        20
 clk=1 d=        30, z=        30
 \end{verbatim}
+\end{enumerate}
 
+\subsection{LabM2}
+\begin{enumerate}
+\item[10. ] The register behaves as expected: Initially, the value is unknown,
+then at each rising edge the value is updated to the value of input \verb$d$.
+\begin{verbatim}
+$ vvp a.out +enable=1
+    0: clk=0,d=         x,z=         x,expect=         x
+    2: clk=0,d= 303379748,z=         x,expect=         x
+    4: clk=0,d=3230228097,z=         x,expect=         x
+    5: clk=1,d=3230228097,z=3230228097,expect=3230228097
+    6: clk=1,d=2223298057,z=3230228097,expect=3230228097
+    8: clk=1,d=2985317987,z=3230228097,expect=3230228097
+   10: clk=0,d= 112818957,z=3230228097,expect=3230228097
+   12: clk=0,d=1189058957,z=3230228097,expect=3230228097
+   14: clk=0,d=2999092325,z=3230228097,expect=3230228097
+   15: clk=1,d=2999092325,z=2999092325,expect=2999092325
+   16: clk=1,d=2302104082,z=2999092325,expect=2999092325
+   18: clk=1,d=  15983361,z=2999092325,expect=2999092325
+   20: clk=0,d= 114806029,z=2999092325,expect=2999092325
+   22: clk=0,d= 992211318,z=2999092325,expect=2999092325
+   24: clk=0,d= 512609597,z=2999092325,expect=2999092325
+   25: clk=1,d= 512609597,z= 512609597,expect= 512609597
+   26: clk=1,d=1993627629,z= 512609597,expect= 512609597
+   28: clk=1,d=1177417612,z= 512609597,expect= 512609597
+   30: clk=0,d=2097015289,z= 512609597,expect= 512609597
+   32: clk=0,d=3812041926,z= 512609597,expect= 512609597
+   34: clk=0,d=3807872197,z= 512609597,expect= 512609597
+   35: clk=1,d=3807872197,z=3807872197,expect=3807872197
+   36: clk=1,d=3574846122,z=3807872197,expect=3807872197
+   38: clk=1,d=1924134885,z=3807872197,expect=3807872197
+   40: clk=0,d=3151131255,z=3807872197,expect=3807872197
+\end{verbatim}
 \end{enumerate}
 
 %----------------------------------------------------------------------------------------
@@ -145,6 +178,9 @@ clk=1 d=        30, z=        30
 
 \subsection{LabM1}
 \lstinputlisting[language=verilog]{LabM1.v}
+
+\subsection{LabM2}
+\lstinputlisting[language=verilog]{LabM2.v}
 
 %----------------------------------------------------------------------------------------
 
