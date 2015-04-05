@@ -162,6 +162,43 @@ $ vvp a.out +enable=1
 \end{verbatim}
 \end{enumerate}
 
+\subsection{LabM3}
+\begin{enumerate}
+\item[14. ] The output of the program with \verb$w$ set:
+\begin{verbatim}
+$ vvp a.out +w=1
+rn1= 4,rd1=        16  rn2= 1,rd2=         1
+rn1= 9,rd1=        81  rn2= 3,rd2=         9
+rn1=13,rd1=       169  rn2=13,rd2=       169
+rn1= 5,rd1=        25  rn2=18,rd2=       324
+rn1= 1,rd1=         1  rn2=13,rd2=       169
+rn1=22,rd1=       484  rn2=29,rd2=       841
+rn1=13,rd1=       169  rn2=12,rd2=       144
+rn1=25,rd1=       625  rn2= 6,rd2=        36
+rn1= 5,rd1=        25  rn2=10,rd2=       100
+rn1= 5,rd1=        25  rn2=23,rd2=       529
+\end{verbatim}
+  We can see that each register value is the square of its register
+number, as we intended. Therefore the program is working correctly.
+
+\item[15. ] With \verb$w$ cleared, nothing is stored in the registers,
+therefore the value of each one will be unknown (\verb$x$):
+\begin{verbatim}
+$ vvp a.out +w=0
+rn1= 4,rd1=         x  rn2= 1,rd2=         x
+rn1= 9,rd1=         x  rn2= 3,rd2=         x
+rn1=13,rd1=         x  rn2=13,rd2=         x
+rn1= 5,rd1=         x  rn2=18,rd2=         x
+rn1= 1,rd1=         x  rn2=13,rd2=         x
+rn1=22,rd1=         x  rn2=29,rd2=         x
+rn1=13,rd1=         x  rn2=12,rd2=         x
+rn1=25,rd1=         x  rn2= 6,rd2=         x
+rn1= 5,rd1=         x  rn2=10,rd2=         x
+rn1= 5,rd1=         x  rn2=23,rd2=         x
+\end{verbatim}
+The output verifies that the register file behaves as expected.
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -181,6 +218,9 @@ $ vvp a.out +enable=1
 
 \subsection{LabM2}
 \lstinputlisting[language=verilog]{LabM2.v}
+
+\subsection{LabM3}
+\lstinputlisting[language=verilog]{LabM3.v}
 
 %----------------------------------------------------------------------------------------
 
