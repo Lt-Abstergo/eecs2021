@@ -22,7 +22,7 @@ These files were written and developed by [Professor H. Roumani](http://www.eecs
 
 #### hrLib/exceptions.s
 
-This file is an [older version](http://sourceforge.net/p/spimsimulator/code/265/tree/CPU/exceptions.s) of the [current exceptions.s](sourceforge.net/p/spimsimulator/code/HEAD/tree/CPU/exceptions.s) which is part of the SPIM MIPS simulator developed by James Larus. The license is included in the header of the file.
+This file is an [older version](http://sourceforge.net/p/spimsimulator/code/265/tree/CPU/exceptions.s) of the [current exceptions.s](http://sourceforge.net/p/spimsimulator/code/HEAD/tree/CPU/exceptions.s) which is part of the SPIM MIPS simulator developed by James Larus. The license is included in the header of the file.
 
 #### mips.sty
 
