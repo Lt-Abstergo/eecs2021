@@ -199,6 +199,43 @@ rn1= 5,rd1=         x  rn2=23,rd2=         x
 The output verifies that the register file behaves as expected.
 \end{enumerate}
 
+\subsection{LabM4}
+\begin{enumerate}
+\item[20. ] The content of the memory at address 16 should be 12345678 (hex),
+at 20 should be unknown (since we didn't write to that address);
+and at 24 should be 89abcdef (hex).
+
+\item[21. ] The output matches our prediction:
+\begin{verbatim}
+$ vvp a.out
+ERROR: ../hrLib/mem.v:22: $readmemh: Unable to open ram.dat
+ for reading.
+Address         16 contains 12345678
+Address         20 contains xxxxxxxx
+Address         24 contains 89abcdef
+\end{verbatim}
+  Therefore the program behaves as expected.
+
+\item[22. ] According to the lab manual (see '$17$ above') attempting to
+read / write using a non-word address should display an "unaligned address"
+error; but this was not the case. \newline
+
+Looking at the source code for the memory module on a lab machine at
+\begin{verbatim}
+/cs/fac/pkg/verimips/hrLib/mem.v
+\end{verbatim}
+shows that the corresponding lines (line $29$ for \verb$read$ and
+$50$ for \verb$write$) for displaying the error were commented out. \newline
+
+So, no error is displayed when using an unaligned address, but here's what
+happens instead:
+
+\begin{itemize}
+\item read: \verb$memOut$ is set to \verb$32'hxxxxxxxx$ (a 32-bit \textit{unknown}).
+\item write: no action is taken.
+\end{itemize}
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -221,6 +258,9 @@ The output verifies that the register file behaves as expected.
 
 \subsection{LabM3}
 \lstinputlisting[language=verilog]{LabM3.v}
+
+\subsection{LabM4}
+\lstinputlisting[language=verilog]{LabM4.v}
 
 %----------------------------------------------------------------------------------------
 
