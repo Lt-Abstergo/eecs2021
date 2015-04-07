@@ -128,3 +128,37 @@ module yIF (ins, PCp4, PCin, clk) ;
    yAlu alu(PCp4, ex, 4, pcRegOut, 3'b010);
    mem memory(ins, pcRegOut, memIn, clk, 1, 0);
 endmodule // yIF
+
+module yID (rd1, rd2, imm, jTarget, ins, wd, RegDst, RegWrite, clk) ;
+   output [31:0] rd1, rd2, imm;
+   output [25:0] jTarget;
+   input [31:0]  ins, wd;
+   input         RegDst, RegWrite, clk;
+   wire   [4:0] rn1, rn2, wn;
+   wire [15:0]   zeros, ones;
+   assign zeros[15:0] = 16'b0000000000000000;
+   assign ones[15:0] = 16'b1111111111111111;
+
+   assign rn1 = ins[25:21];
+   assign rn2 = ins[20:16];
+   yMux #(5) mux(wn, rn2, ins[15:11], RegDst);
+
+   assign imm[15:0] = ins[15:0];
+   yMux #(16) se(imm[31:16], zeros, ones, ins[15]);
+
+   assign jTarget = ins[25:0];
+
+   rf regfile(rd1, rd2, rn1, rn2, wn, wd, clk, RegWrite);
+endmodule // yID
+
+module yEX (z, zero, rd1, rd2, imm, op, ALUSrc) ;
+   output [31:0] z;
+   output        zero;
+   input [31:0]  rd1, rd2, imm;
+   input  [2:0] op;
+   input  ALUSrc;
+   wire   [31:0] b;
+
+   yMux #(32) mux(b, rd2, imm, ALUSrc);
+   yAlu alu(z, zero, rd1, b, op);
+endmodule // yEX

@@ -319,6 +319,27 @@ instruction = ac040024
 \end{verbatim}
 \end{enumerate}
 
+\subsection{LabM8}
+\begin{enumerate}
+\item[50. ] The output of LabM8:
+\begin{verbatim}
+00006820: rd1= 0 rd2= 0 imm=00006820 jTarget=0006820 z= 0 zero=1
+00008020: rd1= 0 rd2= 0 imm=ffff8020 jTarget=0008020 z= 0 zero=1
+00002020: rd1= 0 rd2= 0 imm=00002020 jTarget=0002020 z= 0 zero=1
+8da80050: rd1= 0 rd2= x imm=00000050 jTarget=1a80050 z=80 zero=0
+11000004: rd1=80 rd2= 0 imm=00000004 jTarget=1000004 z=84 zero=0
+02088020: rd1= 0 rd2=80 imm=ffff8020 jTarget=2088020 z=80 zero=0
+00882025: rd1= 0 rd2=80 imm=00002025 jTarget=0882025 z=80 zero=0
+21ad0004: rd1= 0 rd2= 0 imm=00000004 jTarget=1ad0004 z= 4 zero=0
+08000023: rd1= 0 rd2= 0 imm=00000023 jTarget=0000023 z=35 zero=0
+ac100020: rd1= 0 rd2=80 imm=00000020 jTarget=0100020 z=32 zero=0
+ac040024: rd1= 0 rd2=80 imm=00000024 jTarget=0040024 z=36 zero=0
+\end{verbatim}
+  Looking at each instruction they represent (in order): add, add, add, lw, beq,
+add, or, addi, j, sw, sw. We can see that each line is consistent with our
+datapath (looking at \verb$rd1$, \verb$rd2$, \verb$imm$ and \verb$z$).
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -357,6 +378,9 @@ statement, used for writing the following \verb$ram.dat$ program:
 
 \subsection{LabM7}
 \lstinputlisting[language=verilog]{LabM7.v}
+
+\subsection{LabM8}
+\lstinputlisting[language=verilog]{LabM8.v}
 
 \subsection{CPU}
 \lstinputlisting[language=verilog]{cpu.v}
