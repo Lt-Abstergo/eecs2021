@@ -282,6 +282,25 @@ Address 000000a8 contains ac040024
 \end{verbatim}
 \end{enumerate}
 
+\subsection{LabM6}
+\begin{enumerate}
+\item[29. ] LabM6 produces the correct output, the memory content in an
+instruction-aware format:
+\begin{verbatim}
+0 0 0 13 32
+0 0 0 16 32
+0 0 0 4 32
+35 13 8 80
+4 8 0 4
+0 16 8 16 32
+0 4 8 4 37
+8 13 13 4
+2 35
+43 0 16 32
+43 0 4 36
+\end{verbatim}
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -314,6 +333,9 @@ Address 000000a8 contains ac040024
 LabM5.s was loaded into spim to generate the machine encoding of each
 statement, used for writing the following \verb$ram.dat$ program:
 \lstinputlisting{ram.dat}
+
+\subsection{LabM6}
+\lstinputlisting[language=verilog]{LabM6.v}
 
 %----------------------------------------------------------------------------------------
 
