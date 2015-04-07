@@ -340,6 +340,24 @@ add, or, addi, j, sw, sw. We can see that each line is consistent with our
 datapath (looking at \verb$rd1$, \verb$rd2$, \verb$imm$ and \verb$z$).
 \end{enumerate}
 
+\subsection{LabM9}
+\begin{enumerate}
+\item[57. ] The output of LabM9 matches the given output in the lab manual:
+\begin{verbatim}
+00006820: rd1= 0 rd2= 0 z=  0 zero=1 wb= 0
+00008020: rd1= 0 rd2= 0 z=  0 zero=1 wb= 0
+00002020: rd1= 0 rd2= 0 z=  0 zero=1 wb= 0
+8da80050: rd1= 0 rd2= x z= 80 zero=0 wb= 1
+11000004: rd1= 1 rd2= 0 z=  1 zero=0 wb= 1
+02088020: rd1= 0 rd2= 1 z=  1 zero=0 wb= 1
+00882025: rd1= 0 rd2= 1 z=  1 zero=0 wb= 1
+21ad0004: rd1= 0 rd2= 0 z=  4 zero=0 wb= 4
+08000023: rd1= 0 rd2= 0 z= 35 zero=0 wb=35
+ac100020: rd1= 0 rd2= 1 z= 32 zero=0 wb=32
+ac040024: rd1= 0 rd2= 1 z= 36 zero=0 wb=36
+\end{verbatim}
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -381,6 +399,9 @@ statement, used for writing the following \verb$ram.dat$ program:
 
 \subsection{LabM8}
 \lstinputlisting[language=verilog]{LabM8.v}
+
+\subsection{LabM9}
+\lstinputlisting[language=verilog]{LabM9.v}
 
 \subsection{CPU}
 \lstinputlisting[language=verilog]{cpu.v}

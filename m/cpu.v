@@ -162,3 +162,19 @@ module yEX (z, zero, rd1, rd2, imm, op, ALUSrc) ;
    yMux #(32) mux(b, rd2, imm, ALUSrc);
    yAlu alu(z, zero, rd1, b, op);
 endmodule // yEX
+
+module yDM(memOut, exeOut, rd2, clk, MemRead, MemWrite) ;
+   output [31:0] memOut;
+   input [31:0]  exeOut, rd2;
+   input         clk, MemRead, MemWrite;
+
+   mem memory(memOut, exeOut, rd2, clk, MemRead, MemWrite);
+endmodule // yDM
+
+module yWB(wb, exeOut, memOut, Mem2Reg) ;
+   output [31:0] wb;
+   input [31:0]  exeOut, memOut;
+   input         Mem2Reg;
+
+   yMux #(32) mux(wb, exeOut, memOut, Mem2Reg);
+endmodule // yWB
