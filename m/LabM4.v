@@ -32,13 +32,9 @@ module labM ;
           end
 
         /*
-        clk = 0;
-        memIn = 32'h12341234;
-        address = 17;
-        write = 1;
-        clk = 1;
-        #1;
-        $display("Address %d contains %h", address, memOut);
+        clk = 0; memIn = 32'h12341234;
+        address = 17; write = 1; clk = 1;
+        #1 $display("Address %d contains %h", address, memOut);
         address = 27;
         $display("Address %d contains %h", address, memOut);
         */

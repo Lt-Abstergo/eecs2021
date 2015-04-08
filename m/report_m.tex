@@ -155,6 +155,8 @@ edge. The third output, \verb$z$ is still 20, since it's the falling edge of the
 clock. Finally, the last output will be a new value of z ($= 30$) since the clock
 is on the rising edge.
 
+\pagebreak
+
 \item[5. ] The register works as expected, ignoring the input when \verb$enabled=0$
 and storing them (on the rising edges of the clock) when \verb$enabled=1$:
 \begin{verbatim}
@@ -249,6 +251,8 @@ The output verifies that the register file behaves as expected.
 at 20 should be unknown (since we didn't write to that address);
 and at 24 should be 89abcdef (hex).
 
+\pagebreak
+
 \item[21. ] The output matches our prediction:
 \begin{verbatim}
 $ vvp a.out
@@ -335,6 +339,8 @@ instruction = ac040024
 \end{verbatim}
 \end{enumerate}
 
+\pagebreak
+
 \subsection{LabM8}
 \begin{enumerate}
 \item[50. ] The output of LabM8:
@@ -373,6 +379,8 @@ ac100020: rd1= 0 rd2= 1 z= 32 zero=0 wb=32
 ac040024: rd1= 0 rd2= 1 z= 36 zero=0 wb=36
 \end{verbatim}
 \end{enumerate}
+
+\pagebreak
 
 \subsection{LabM10}
 \begin{enumerate}
@@ -420,16 +428,24 @@ a control unit, would be so difficult.
 %	SECTION 5
 %----------------------------------------------------------------------------------------
 
+\pagebreak
+
 \section{Source Codes}
 
 \subsection{LabM1}
 \lstinputlisting[language=verilog]{LabM1.v}
 
+\pagebreak
+
 \subsection{LabM2}
 \lstinputlisting[language=verilog]{LabM2.v}
 
+\pagebreak
+
 \subsection{LabM3}
 \lstinputlisting[language=verilog]{LabM3.v}
+
+\pagebreak
 
 \subsection{LabM4}
 \lstinputlisting[language=verilog]{LabM4.v}
@@ -439,7 +455,10 @@ a control unit, would be so difficult.
 \lstinputlisting[style=assembly]{LabM5.s}
 LabM5.s was loaded into spim to generate the machine encoding of each
 statement, used for writing the following \verb$ram.dat$ program:
+\pagebreak
 \lstinputlisting{ram.dat}
+
+\pagebreak
 
 \subsection{LabM6}
 \lstinputlisting[language=verilog]{LabM6.v}
