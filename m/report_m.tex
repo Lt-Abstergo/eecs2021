@@ -358,6 +358,28 @@ ac040024: rd1= 0 rd2= 1 z= 36 zero=0 wb=36
 \end{verbatim}
 \end{enumerate}
 
+\subsection{LabM10}
+\begin{enumerate}
+\item[59. ] Previously, we were only going through the program once and basically
+treating each instruction equally when going to the next instruction (by 
+increasing the counter by 4). However, now determine the address of the next 
+instruction based on the instruction type:
+\begin{itemize}
+\item branches: we add $4 \times the\,immediate\,field$ to the next address.
+\item jumps: we directly jump to $4 \times jTarget$.
+\item otherwise, we proceed normally to the next instruction.
+\end{itemize}
+And thus we need to perform more steps than 11 to cover a complete execution
+of the program.
+
+\item[60. ] The last two lines of output match the expected output given in the
+lab manual:
+\begin{verbatim}
+ac100020: rd1= 0 rd2=36 z= 32 zero=0 wb=32
+ac040024: rd1= 0 rd2=15 z= 36 zero=0 wb=3
+\end{verbatim}
+\end{enumerate}
+
 %----------------------------------------------------------------------------------------
 %	SECTION 4
 %----------------------------------------------------------------------------------------
@@ -402,6 +424,9 @@ statement, used for writing the following \verb$ram.dat$ program:
 
 \subsection{LabM9}
 \lstinputlisting[language=verilog]{LabM9.v}
+
+\subsection{LabM10}
+\lstinputlisting[language=verilog]{LabM10.v}
 
 \subsection{CPU}
 \lstinputlisting[language=verilog]{cpu.v}
